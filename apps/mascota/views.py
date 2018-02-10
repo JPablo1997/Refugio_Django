@@ -34,3 +34,10 @@ def mascota_edit(request, id_mascota):
 			form.save()
 		return redirect('http://127.0.0.1:8000/mascota/listar/')
 	return render(request, 'mascota/mascota_form.html', {'form':form})
+
+def mascota_delete(request, id_mascota):
+	mascota = Mascota.objects.get(id=id_mascota)
+	if request.method == 'POST':
+		mascota.delete()
+		return redirect('mascota_listar')
+	return render(request, 'mascota/mascota_delete.html', {'mascota':mascota})
