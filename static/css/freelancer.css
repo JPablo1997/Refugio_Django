@@ -402,6 +402,7 @@ a:focus, a:hover, a:active {
 .table{
    border-collapse: separate;
    border-spacing: 5px;
+   border-color: #778899;
 }
 
 
