@@ -3,7 +3,7 @@
 {% block content %}
 
 <table class="table table-bordered">
-	<thead>
+	<thead class="thead">
 		<tr>
 			<td>#</td>
 			<td>Nombre</td>
@@ -14,7 +14,7 @@
 			<td>Acciones</td>
 		</tr>
 	</thead>
-	<tbody>
+	<tbody class="tbody">
 		{% if object_list %}
 		{% for mascota in object_list %}
 		<tr>
