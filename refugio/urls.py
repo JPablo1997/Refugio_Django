@@ -15,14 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.contrib.auth.views import login, password_reset, password_reset_done, password_reset_confirm, password_reset_complete
+from django.contrib.auth.views import login,logout_then_login, password_reset, password_reset_done, password_reset_confirm, password_reset_complete
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('mascota/', include('apps.mascota.urls')),
     path('adopcion/', include('apps.adopcion.urls')),
     path('usuario/', include('apps.usuario.urls')),
-    path('', login, {'template_name':'index.html'}, name='login'),
+    path('accounts/login/', login, {'template_name':'index.html'}, name='login'),
+    path('logout/',logout_then_login, name='logout'),
     path('reset/password_reset', password_reset, 
         {'template_name':'registration/password_reset_form.html',
         'email_template_name':'registration/password_reset_email.html'}, name='password_reset'),
